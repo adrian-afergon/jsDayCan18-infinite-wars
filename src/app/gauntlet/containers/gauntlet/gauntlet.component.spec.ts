@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GauntletComponent } from './gauntlet.component';
+import { GauntletModule } from '../../gauntlet.module';
 
 describe('GauntletComponent', () => {
   let component: GauntletComponent;
@@ -8,7 +9,7 @@ describe('GauntletComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GauntletComponent ]
+      imports: [GauntletModule]
     })
     .compileComponents();
   }));
