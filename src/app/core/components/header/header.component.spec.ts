@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeaderComponent } from './header.component';
+import {TitleComponent} from '../title/title.component';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -8,7 +9,7 @@ describe('HeaderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ]
+      declarations: [ HeaderComponent, TitleComponent ]
     })
     .compileComponents();
   }));
@@ -23,7 +24,7 @@ describe('HeaderComponent', () => {
     expect(component).toBeTruthy();
   });
   it('should have a title', () => {
-    const title = fixture.debugElement.nativeElement.querySelector('h1');
+    const title = fixture.debugElement.nativeElement.querySelector('app-title');
     expect(title).toBeTruthy();
   });
   it('should have a links to pages', () => {
