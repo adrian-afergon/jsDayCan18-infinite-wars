@@ -6,7 +6,7 @@ header {
   color: $color-white;
   display: flex;
   flex-direction: row;
-  padding: 1.5rem;
+  padding: 1rem 1.5rem;
 
   .title {
     flex:4;
@@ -20,19 +20,24 @@ header {
 
     li {
       flex: 1;
-      padding: 1rem;
-      transition: background-color 0.2s linear;
       text-align: center;
+      display: flex;
 
       a {
+        flex: 1;
         color: $color-white;
+        padding: 1rem;
         text-decoration: none;
+        transition: background-color 0.2s linear;
+      }
+
+      a:hover {
+        background-color: $color-grey-hover;
+      }
+
+      .active-link {
+        background-color: $color-grey-hover;
       }
     }
-
-    li:hover {
-      background-color: $color-grey-hover;
-    }
-
   }
 }
