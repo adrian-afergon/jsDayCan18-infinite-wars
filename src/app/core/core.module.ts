@@ -3,18 +3,18 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './components/header/header.component';
 import { MainComponent } from './containers/main/main.component';
 import { CoreRouter } from './app.routing';
-import {RouterModule} from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
-import { TitleComponent } from './components/title/title.component';
-import { SubtitleComponent } from './components/subtitle/subtitle.component';
+import { ShareModule } from '../share/share.module';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
+    ShareModule,
     CoreRouter
   ],
-  declarations: [HeaderComponent, MainComponent, FooterComponent, TitleComponent, SubtitleComponent],
+  declarations: [HeaderComponent, MainComponent, FooterComponent],
   exports: [MainComponent]
 })
 export class CoreModule { }
