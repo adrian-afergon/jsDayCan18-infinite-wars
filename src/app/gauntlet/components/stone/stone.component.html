@@ -1,0 +1,11 @@
+<div class="stone-component">
+  <img [src]="stone.image" [alt]="stone.name"/>
+  <div class="stone-info">
+    <app-title class="title">{{stone.name}}</app-title>
+    <p>{{stone.description}}</p>
+    <div>
+      <label>Status: </label>
+      <app-tag >{{stone.equipped ? 'Equipped': 'Unknown'}}</app-tag>
+    </div>
+  </div>
+</div>
