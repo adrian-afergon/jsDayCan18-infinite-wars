@@ -1,7 +1,7 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import {BrowserModule} from '@angular/platform-browser';
-import {RouterTestingModule} from '@angular/router/testing';
+import { CoreModule } from './core/core.module';
+import {APP_BASE_HREF} from '@angular/common';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -9,8 +9,10 @@ describe('AppComponent', () => {
         AppComponent
       ],
       imports: [
-        BrowserModule,
-        RouterTestingModule,
+        CoreModule
+      ],
+      providers: [
+        {provide: APP_BASE_HREF, useValue: '/'}
       ]
     }).compileComponents();
   }));
@@ -19,20 +21,9 @@ describe('AppComponent', () => {
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
-  it(`should have a header`, async(() => {
+  it('should have a app-main', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    const appComponent = fixture.debugElement.nativeElement;
-    expect(appComponent.querySelector('header')).toBeTruthy();
-  }));
-  it(`should have a footer`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const appComponent = fixture.debugElement.nativeElement;
-    expect(appComponent.querySelector('footer')).toBeTruthy();
-  }));
-
-  it(`should have a main-section`, async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const appComponent = fixture.debugElement.nativeElement;
-    expect(appComponent.querySelector('.main-section')).toBeTruthy();
-  }));
+    const appMain = fixture.debugElement.nativeElement.querySelector('app-main');
+    expect(appMain).toBeTruthy();
+  });
 });
