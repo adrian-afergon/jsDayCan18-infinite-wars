@@ -1,0 +1,25 @@
+@import "../../../app.component.scss";
+
+footer {
+  background-color: $color-grey;
+  color: $color-white;
+  display: flex;
+  padding: 1rem;
+
+  .title {
+    display: flex;
+    flex:4;
+  }
+
+  ul {
+    display: flex;
+    flex:1;
+    flex-direction: column;
+
+    a{
+      color: $color-white;
+      text-decoration: none;
+    }
+
+  }
+}
