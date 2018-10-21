@@ -7,6 +7,7 @@ import { reducers, metaReducers } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
 import {AppRouter} from './app.routing';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import {AppRouter} from './app.routing';
   ],
   imports: [
     BrowserModule,
+    RouterModule,
     AppRouter,
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot([AppEffects]),
