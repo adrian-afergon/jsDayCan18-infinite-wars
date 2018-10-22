@@ -23,4 +23,16 @@ describe('GauntletComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have an image', () => {
+    const image = fixture.debugElement.nativeElement.querySelector('img');
+    expect(image).toBeTruthy();
+  });
+
+
+  it('should have a list of stones', () => {
+    fixture.debugElement.nativeElement.querySelectorAll('app-stone');
+    expect(component).toBeTruthy();
+  });
+
 });

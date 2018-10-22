@@ -1,0 +1,39 @@
+@import "../../../app.component.scss";
+
+#gauntlet {
+  display: flex;
+
+  @media screen and (max-width: $break-small){
+    flex-direction: column;
+    .gauntlet-content {
+      flex:1;
+      img {
+        width: 100%;
+      }
+    }
+    .stone-list {
+      flex: 1;
+    }
+  }
+
+  @media screen and (min-width: $break-small){
+    flex-direction: row;
+    .gauntlet-content {
+      flex:1;
+    }
+    .stone-list {
+      flex: 6;
+    }
+  }
+
+  .gauntlet-content {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    //max-width: $break-small;
+    img {
+      height: auto;
+    }
+  }
+
+}
