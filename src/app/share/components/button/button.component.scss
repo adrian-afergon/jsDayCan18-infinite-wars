@@ -1,0 +1,17 @@
+@import "../../../app.component.scss";
+
+
+button {
+  background-color: $color-gold;
+  border: none;
+  color:$color-white;
+  padding: .5rem;
+  font-size: 1.2rem;
+  width: 100%;
+
+}
+
+button:hover {
+  transition: background-color 0.1s linear;
+  background-color: $color-gold-hover;
+}
