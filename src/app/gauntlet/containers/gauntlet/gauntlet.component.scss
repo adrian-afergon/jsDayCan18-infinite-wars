@@ -2,7 +2,7 @@
 
 #gauntlet {
   display: flex;
-
+  flex: 1;
   @media screen and (max-width: $break-small){
     flex-direction: column;
     .gauntlet-content {
