@@ -10,6 +10,15 @@ header {
 
   .title {
     flex:4;
+    align-items: center;
+    display: flex;
+
+    img {
+      height: 2rem;
+      margin: 0 1rem;
+    }
+
+
   }
 
   ul {
