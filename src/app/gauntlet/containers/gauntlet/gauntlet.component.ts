@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {SocketService} from '../../../core/services/socket.service';
+import {gauntlet} from '../../stones';
 
 @Component({
   selector: 'app-gauntlet',
@@ -8,6 +9,7 @@ import {SocketService} from '../../../core/services/socket.service';
 })
 export class GauntletComponent implements OnInit {
 
+  public stones = Object.values(gauntlet);
   constructor(private socketService: SocketService) { }
 
   ngOnInit() {

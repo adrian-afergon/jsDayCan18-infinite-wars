@@ -4,8 +4,6 @@
     <app-button (onClick)="onSnap()">Snap</app-button>
   </div>
   <div class="stone-list">
-    <app-stone></app-stone>
-    <app-stone></app-stone>
-    <app-stone></app-stone>
+    <app-stone *ngFor="let stone of stones" [stone]="stone"></app-stone>
   </div>
 </div>
