@@ -5,7 +5,7 @@
     <p>{{stone.description}}</p>
     <div>
       <label>Status: </label>
-      <app-tag >{{stone.equipped ? 'Equipped': 'Unknown'}}</app-tag>
+      <app-tag [ngClass]="{equipped: stone.equipped}">{{stone.equipped ? 'Equipped': 'Unknown'}}</app-tag>
     </div>
   </div>
 </div>

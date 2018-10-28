@@ -1,8 +1,13 @@
 @import "../../../app.component.scss";
 
+:host(app-gauntlet) {
+  flex: 1
+}
+
 #gauntlet {
   display: flex;
   flex: 1;
+
   @media screen and (max-width: $break-small){
     flex-direction: column;
     .gauntlet-content {
@@ -23,6 +28,8 @@
     }
     .stone-list {
       flex: 6;
+      display: flex;
+      flex-direction: column;
     }
   }
 

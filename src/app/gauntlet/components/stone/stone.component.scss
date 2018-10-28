@@ -28,7 +28,7 @@
     }
   }
 
-  :host(.equipped) {
+  .equipped {
     background-color: $color-success;
     color: $color-white;
   }
