@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  end_point: 'https://vast-tor-50459.herokuapp.com/'
 };
 
 /*

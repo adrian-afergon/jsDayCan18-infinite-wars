@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  end_point: 'https://vast-tor-50459.herokuapp.com/'
 };
