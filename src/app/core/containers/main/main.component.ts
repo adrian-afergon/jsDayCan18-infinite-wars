@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {SocketService} from '../../services/socket.service';
+import { Event } from '../../model/event';
 
 @Component({
   selector: 'app-main',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  constructor(private socketService: SocketService) { }
 
   ngOnInit() {
+    this.initIoConnection();
+  }
+
+  private initIoConnection(): void {
+    this.socketService.initSocket();
+    this.socketService.onEvent(Event.CONNECT)
+      .subscribe(() => {
+        console.log('connected');
+      });
+
+    this.socketService.onEvent(Event.DISCONNECT)
+      .subscribe(() => {
+        console.log('disconnected');
+      });
   }
 
 }

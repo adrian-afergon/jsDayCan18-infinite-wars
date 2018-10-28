@@ -3,7 +3,11 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { MainComponent } from './main.component';
 import {BrowserModule} from '@angular/platform-browser';
 import {RouterTestingModule} from '@angular/router/testing';
-import {CoreModule} from '../../core.module';
+import {SocketService} from '../../services/socket.service';
+import {of} from 'rxjs';
+import {HeaderComponent} from '../../components/header/header.component';
+import {FooterComponent} from '../../components/footer/footer.component';
+import {ShareModule} from '../../../share/share.module';
 
 describe('MainComponent', () => {
   let component: MainComponent;
@@ -12,9 +16,17 @@ describe('MainComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        CoreModule,
         BrowserModule,
+        ShareModule,
         RouterTestingModule,
+      ],
+      declarations: [
+        MainComponent,
+        HeaderComponent,
+        FooterComponent,
+      ],
+      providers: [
+        { provide: SocketService, useClass: SocketServiceMock}
       ]
     })
     .compileComponents();
@@ -43,3 +55,23 @@ describe('MainComponent', () => {
     expect(appComponent.querySelector('.main-section')).toBeTruthy();
   }));
 });
+
+class SocketServiceMock {
+  constructor() { }
+
+  onEvent = jasmine.createSpy('onEvent').and.callFake(
+    () => of(Object.assign({}, 'irrelevant'))
+  );
+  public initSocket = jasmine.createSpy('initSocket').and.callFake(
+    () => {}
+  );
+
+  public snap = jasmine.createSpy('snap').and.callFake(
+    () => {}
+  );
+
+  // public onEvent(event: Event): Observable<any> {
+  //   return of('irrelevant');
+  // }
+
+}
