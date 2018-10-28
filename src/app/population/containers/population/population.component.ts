@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SocketService} from '../../../core/services/socket.service';
 
 @Component({
   selector: 'app-population',
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PopulationComponent implements OnInit {
 
-  constructor() { }
+  population: number;
+  constructor(socketService: SocketService) {
+    socketService.onPopulation().subscribe( population => this.population = population);
+  }
 
   ngOnInit() {
   }

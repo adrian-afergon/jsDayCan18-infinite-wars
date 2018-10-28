@@ -28,4 +28,10 @@ export class SocketService {
     });
   }
 
+  public onPopulation(): Observable<number> {
+    return new Observable<number>(observer => {
+      this.socket.on('population', (data: number) => observer.next(data));
+    });
+  }
+
 }
