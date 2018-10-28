@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SocketService} from '../../../core/services/socket.service';
 
 @Component({
   selector: 'app-gauntlet',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GauntletComponent implements OnInit {
 
-  constructor() { }
+  constructor(private socketService: SocketService) { }
 
   ngOnInit() {
   }
 
+  public onSnap() {
+    this.socketService.snap();
+  }
 }
