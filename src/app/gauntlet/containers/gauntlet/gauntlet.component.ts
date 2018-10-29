@@ -19,4 +19,7 @@ export class GauntletComponent implements OnInit {
   public onSnap() {
     this.socketService.snap();
   }
+  public equipStone(event) {
+    console.log(event);
+  }
 }

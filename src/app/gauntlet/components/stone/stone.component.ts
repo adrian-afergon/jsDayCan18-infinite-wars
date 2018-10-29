@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Stone} from '../../stones';
 
 @Component({
@@ -9,8 +9,13 @@ import {Stone} from '../../stones';
 export class StoneComponent implements OnInit {
 
   @Input() public stone: Stone;
+  @Output() onClick = new EventEmitter();
   constructor() { }
 
   ngOnInit() {}
+
+  stoneClicked(event) {
+    this.onClick.emit(this.stone);
+  }
 
 }

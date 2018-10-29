@@ -1,4 +1,4 @@
-<div class="stone-component">
+<div class="stone-component" (click)="stoneClicked($event)" >
   <img [src]="stone.image" [alt]="stone.name"/>
   <div class="stone-info">
     <app-title class="title">{{stone.name}}</app-title>
