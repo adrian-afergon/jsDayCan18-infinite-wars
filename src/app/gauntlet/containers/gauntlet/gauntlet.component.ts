@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { SocketService } from '../../../core/services/socket.service';
 import { StonesService } from '../../../core/services/stones.service';
-import {StoneModel} from '../../viewmodel/Stone.model';
+import { StoneModel } from '../../viewmodel/Stone.model';
+import { GauntletMapper } from '../../mappers/gauntlet.mapper';
 
 @Component({
   selector: 'app-gauntlet',
@@ -13,7 +14,7 @@ export class GauntletComponent implements OnInit {
   constructor(private socketService: SocketService, private stonesService: StonesService) { }
 
   ngOnInit() {
-    this.stonesService.getStones().subscribe(gauntlet => this.stones = Object.keys(gauntlet).map(key => ({key, ...gauntlet[key]})));
+    this.stonesService.getStones().subscribe(gauntlet => this.stones = GauntletMapper.toViewModel(gauntlet));
   }
 
   public onSnap() {
