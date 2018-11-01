@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { InfinityGauntletComponent } from './infinity-gauntlet.component';
+import {SharedModule} from '../../../shared/shared.module';
 
 describe('InfinityGauntletComponent', () => {
   let component: InfinityGauntletComponent;
@@ -8,7 +9,8 @@ describe('InfinityGauntletComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InfinityGauntletComponent ]
+      declarations: [ InfinityGauntletComponent ],
+      imports: [SharedModule]
     })
     .compileComponents();
   }));

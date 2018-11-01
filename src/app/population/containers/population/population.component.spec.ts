@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PopulationComponent } from './population.component';
+import {SharedModule} from '../../../shared/shared.module';
 
 describe('PopulationComponent', () => {
   let component: PopulationComponent;
@@ -8,7 +9,8 @@ describe('PopulationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PopulationComponent ]
+      declarations: [ PopulationComponent ],
+      imports: [SharedModule]
     })
     .compileComponents();
   }));
