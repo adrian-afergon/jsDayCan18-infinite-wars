@@ -13,9 +13,6 @@
     flex-direction: column;
     .gauntlet-content {
       flex:1;
-      img {
-        width: 100%;
-      }
     }
     .stone-list {
       flex: 1;
@@ -34,20 +31,4 @@
       padding: .5rem;
     }
   }
-
-  .gauntlet-content {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    //max-width: $break-small;
-    img {
-      height: auto;
-    }
-
-    img :hover {
-      opacity: 0.2;
-    }
-
-  }
-
 }

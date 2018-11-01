@@ -4,6 +4,7 @@ import { GauntletComponent } from './containers/gauntlet/gauntlet.component';
 import { GauntletRouter } from './gauntlet.routing';
 import { StoneComponent } from './components/stone/stone.component';
 import { SharedModule } from '../shared/shared.module';
+import { InfinityGauntletComponent } from './components/infinity-gauntlet/infinity-gauntlet.component';
 
 @NgModule({
   imports: [
@@ -11,6 +12,6 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     GauntletRouter
   ],
-  declarations: [GauntletComponent, StoneComponent]
+  declarations: [GauntletComponent, StoneComponent, InfinityGauntletComponent]
 })
 export class GauntletModule { }
