@@ -1,0 +1,35 @@
+@import "../../../app.component.scss";
+
+@media screen and (max-width: $break-small){
+  .infinity-gauntlet {
+    flex:1;
+    img {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (min-width: $break-small) {
+  .infinity-gauntlet {
+    flex:1;
+  }
+}
+.infinity-gauntlet {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+
+  img {
+    height: auto;
+    cursor: default;
+    transition: all 0.2s linear;
+  }
+
+  img :hover {
+    opacity: 0.2;
+  }
+
+  img.disabled {
+    opacity: .4;
+  }
+}
