@@ -1,7 +1,7 @@
 <div id="gauntlet">
   <div class="gauntlet-content">
     <img src="/assets/gauntlet.png">
-    <app-button (onClick)="onSnap()">Snap</app-button>
+    <app-button (onClick)="onSnap()" [disabled]="isGauntletCompleted()">Snap</app-button>
   </div>
   <div class="stone-list">
     <app-stone *ngFor="let stone of stones" [stone]="stone" (onClick)="equipStone($event)" ></app-stone>

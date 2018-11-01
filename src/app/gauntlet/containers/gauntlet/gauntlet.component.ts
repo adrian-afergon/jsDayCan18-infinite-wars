@@ -17,10 +17,13 @@ export class GauntletComponent implements OnInit {
     this.stonesService.getStones().subscribe(gauntlet => this.stones = GauntletMapper.toViewModel(gauntlet));
   }
 
+  public isGauntletCompleted() {
+    return !!this.stones.find(stone => !stone.equipped);
+  }
   public onSnap() {
     this.socketService.snap();
   }
-  public equipStone(event) {
-    console.log(event);
+  public equipStone(stoneId) {
+    this.stones.map( stone => stone.id === stoneId ? stone.equipped = !stone.equipped : stone);
   }
 }
