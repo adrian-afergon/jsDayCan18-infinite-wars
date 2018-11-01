@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 import { GauntletComponent } from './containers/gauntlet/gauntlet.component';
 import { GauntletRouter } from './gauntlet.routing';
 import { StoneComponent } from './components/stone/stone.component';
-import { ShareModule } from '../share/share.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
-    ShareModule,
+    SharedModule,
     CommonModule,
     GauntletRouter
   ],

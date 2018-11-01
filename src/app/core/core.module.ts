@@ -5,13 +5,13 @@ import { MainComponent } from './containers/main/main.component';
 import { CoreRouter } from './core.routing';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
-import { ShareModule } from '../share/share.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-    ShareModule,
+    SharedModule,
     CoreRouter
   ],
   declarations: [HeaderComponent, MainComponent, FooterComponent],

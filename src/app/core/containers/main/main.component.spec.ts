@@ -7,7 +7,7 @@ import {SocketService} from '../../services/socket.service';
 import {of} from 'rxjs';
 import {HeaderComponent} from '../../components/header/header.component';
 import {FooterComponent} from '../../components/footer/footer.component';
-import {ShareModule} from '../../../share/share.module';
+import {SharedModule} from '../../../shared/shared.module';
 
 describe('MainComponent', () => {
   let component: MainComponent;
@@ -17,7 +17,7 @@ describe('MainComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         BrowserModule,
-        ShareModule,
+        SharedModule,
         RouterTestingModule,
       ],
       declarations: [

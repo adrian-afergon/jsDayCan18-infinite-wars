@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SocketService } from '../../../core/services/socket.service';
-import { Stone } from '../../stones';
 import { StonesService } from '../../../core/services/stones.service';
+import {StoneModel} from '../../viewmodel/Stone.model';
 
 @Component({
   selector: 'app-gauntlet',
@@ -9,11 +9,11 @@ import { StonesService } from '../../../core/services/stones.service';
   styleUrls: ['./gauntlet.component.scss']
 })
 export class GauntletComponent implements OnInit {
-  public stones: Stone[];
+  public stones: StoneModel[];
   constructor(private socketService: SocketService, private stonesService: StonesService) { }
 
   ngOnInit() {
-    this.stonesService.getStones().subscribe(gauntlet => this.stones = Object.values(gauntlet));
+    this.stonesService.getStones().subscribe(gauntlet => this.stones = Object.keys(gauntlet).map(key => ({key, ...gauntlet[key]})));
   }
 
   public onSnap() {

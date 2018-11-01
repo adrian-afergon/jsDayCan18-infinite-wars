@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {stones} from './stones';
 import { Observable, of } from 'rxjs';
-import { Gauntlet } from '../../gauntlet/stones';
+import { Gauntlet } from '../model/stones';
 
 @Injectable({
   providedIn: 'root'

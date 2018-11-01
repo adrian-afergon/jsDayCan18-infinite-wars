@@ -12,4 +12,4 @@ import { ButtonComponent } from './components/button/button.component';
   declarations: [TitleComponent, SubtitleComponent, TagComponent, ButtonComponent],
   exports: [TitleComponent, SubtitleComponent, TagComponent, ButtonComponent]
 })
-export class ShareModule { }
+export class SharedModule { }

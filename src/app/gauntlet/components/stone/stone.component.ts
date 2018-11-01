@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Stone} from '../../stones';
+import {StoneModel} from '../../viewmodel/Stone.model';
 
 @Component({
   selector: 'app-stone',
@@ -8,14 +8,14 @@ import {Stone} from '../../stones';
 })
 export class StoneComponent implements OnInit {
 
-  @Input() public stone: Stone;
+  @Input() public stone: StoneModel;
   @Output() onClick = new EventEmitter();
   constructor() { }
 
   ngOnInit() {}
 
-  stoneClicked(event) {
-    this.onClick.emit(this.stone);
+  stoneClicked() {
+    this.onClick.emit(this.stone.id);
   }
 
 }
