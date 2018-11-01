@@ -8,10 +8,15 @@ button {
   padding: .5rem;
   font-size: 1.2rem;
   width: 100%;
-
+  transition: background-color 0.1s linear;
 }
 
 button:hover {
-  transition: background-color 0.1s linear;
+
   background-color: $color-gold-hover;
+}
+
+button:disabled {
+  cursor: default;
+  background-color: $color-light-grey;
 }
