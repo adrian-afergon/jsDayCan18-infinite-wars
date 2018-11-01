@@ -1,5 +1,5 @@
 <div class="stone-component" (click)="stoneClicked($event)" >
-  <img [src]="stone.image" [alt]="stone.name"/>
+  <img [src]="stone.image" [alt]="stone.name" [ngClass]="{equipped: stone.equipped}"/>
   <div class="stone-info">
     <app-title class="title">{{stone.name}}</app-title>
     <p>{{stone.description}}</p>

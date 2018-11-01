@@ -15,6 +15,12 @@
     width: 100px;
     height: 100px;
     border-radius: 300px;
+    opacity: .7;
+    transition: all 0.2s linear;
+  }
+
+  img.equipped {
+    opacity: 1;
   }
 
   .stone-info {
@@ -39,3 +45,4 @@
   z-index: 100;
   position: relative;
 }
+
