@@ -9,6 +9,8 @@ import { Event } from '../../model/event';
 })
 export class MainComponent implements OnInit {
 
+  disconected = false;
+
   constructor(private socketService: SocketService) { }
 
   ngOnInit() {
@@ -24,6 +26,7 @@ export class MainComponent implements OnInit {
 
     this.socketService.onEvent(Event.DISCONNECT)
       .subscribe(() => {
+        this.disconected = true;
         console.log('disconnected');
       });
   }
