@@ -1,19 +1,10 @@
-import { ActionReducerMap } from '@ngrx/store';
-import {Stone} from '../core/model/stones';
-
-interface GauntletState {
-  powerStone: Stone;
-  spaceStone: Stone;
-  realityStone: Stone;
-  mindStone: Stone;
-  soulStone: Stone;
-  timeStone: Stone;
-}
+import {ActionReducerMap} from '@ngrx/store';
+import {gauntletReducer, GauntletState} from './gauntlet.reducer';
 
 export interface State {
   gauntlet: GauntletState;
 }
 
 export const reducers: ActionReducerMap<State> = {
-
+  gauntlet: gauntletReducer
 };
