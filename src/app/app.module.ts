@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
+import { reducers } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
 import { CoreModule } from './core/core.module';
@@ -15,7 +15,7 @@ import { CoreModule } from './core/core.module';
   imports: [
     BrowserModule,
     CoreModule,
-    StoreModule.forRoot(reducers, { metaReducers }),
+    StoreModule.forRoot(reducers),
     EffectsModule.forRoot([AppEffects]),
   ],
   providers: [],
