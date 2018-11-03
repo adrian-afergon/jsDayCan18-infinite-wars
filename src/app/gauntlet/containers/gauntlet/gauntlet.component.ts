@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import { SocketService } from '../../../core/services/socket.service';
-import { StonesService } from '../../../core/services/stones.service';
+import { SocketClient } from '../../../core/services/socket.client';
+import { StonesRepository } from '../../../core/services/stones.repository';
 import { StoneModel } from '../../viewmodel/Stone.model';
 import { GauntletMapper } from '../../mappers/gauntlet.mapper';
 import {Subscription} from 'rxjs';
@@ -13,12 +13,12 @@ import {Subscription} from 'rxjs';
 export class GauntletComponent implements OnInit, OnDestroy {
   public stones: StoneModel[];
   public subscription: Subscription;
-  constructor(private socketService: SocketService, private stonesService: StonesService) {
+  constructor(private socketClient: SocketClient, private stonesRepository: StonesRepository) {
     this.stones = [];
   }
 
   ngOnInit() {
-    this.subscription = this.stonesService.getStones().subscribe(gauntlet => this.stones = GauntletMapper.toViewModel(gauntlet));
+    this.subscription = this.stonesRepository.getStones().subscribe(gauntlet => this.stones = GauntletMapper.toViewModel(gauntlet));
   }
   ngOnDestroy() {
     this.subscription.unsubscribe();
@@ -28,7 +28,7 @@ export class GauntletComponent implements OnInit, OnDestroy {
     return !!this.stones.find(stone => !stone.equipped);
   }
   public onSnap() {
-    this.socketService.snap();
+    this.socketClient.snap();
   }
   public equipStone(stoneId) {
     this.stones.map( stone => stone.id === stoneId ? stone.equipped = !stone.equipped : stone);

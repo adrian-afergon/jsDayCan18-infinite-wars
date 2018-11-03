@@ -8,7 +8,7 @@ import * as socketIo from 'socket.io-client';
 @Injectable({
   providedIn: 'root'
 })
-export class SocketService {
+export class SocketClient {
 
   private socket;
 

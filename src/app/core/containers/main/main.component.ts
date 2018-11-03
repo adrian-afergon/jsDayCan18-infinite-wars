@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {SocketService} from '../../services/socket.service';
+import {SocketClient} from '../../services/socket.client';
 import { Event } from '../../model/event';
 
 @Component({
@@ -9,9 +9,9 @@ import { Event } from '../../model/event';
 })
 export class MainComponent implements OnInit {
 
-  disconected = false;
+  disconnected = false;
 
-  constructor(private socketService: SocketService) { }
+  constructor(private socketService: SocketClient) { }
 
   ngOnInit() {
     this.initIoConnection();
@@ -26,7 +26,7 @@ export class MainComponent implements OnInit {
 
     this.socketService.onEvent(Event.DISCONNECT)
       .subscribe(() => {
-        this.disconected = true;
+        this.disconnected = true;
         console.log('disconnected');
       });
   }
