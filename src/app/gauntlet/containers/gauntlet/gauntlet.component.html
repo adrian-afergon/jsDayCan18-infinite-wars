@@ -2,7 +2,7 @@
   <div class="gauntlet-content">
     <app-infinity-gauntlet [disabled]="isGauntletCompleted()" (onSnap)="onSnap()"></app-infinity-gauntlet>
   </div>
-  <div class="stone-list">
-    <app-stone *ngFor="let stone of stones" [stone]="stone" (onClick)="equipStone($event)" ></app-stone>
+  <div class="stone-list" *ngIf="stones$ | async as stones">
+    <app-stone *ngFor="let stone of toViewModel(stones)" [stone]="stone" (onClick)="equipStone($event)" ></app-stone>
   </div>
 </div>
