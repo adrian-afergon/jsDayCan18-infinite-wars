@@ -15,7 +15,7 @@ export class SocketService {
   constructor() { }
 
   public initSocket(): void {
-    this.socket = socketIo(environment.end_point);
+    this.socket = socketIo(`${environment.end_point.protocol}://${environment.end_point.hostname}`);
   }
 
   public snap(): void {

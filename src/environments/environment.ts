@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false,
-  end_point: 'https://vast-tor-50459.herokuapp.com/'
+  end_point: {
+    protocol: 'https',
+    hostname: 'vast-tor-50459.herokuapp.com'
+  }
 };
 
 /*
