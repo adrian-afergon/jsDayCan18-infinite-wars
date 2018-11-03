@@ -3,7 +3,7 @@ import { SocketClient } from '../../../core/services/socket.client';
 import { StonesRepository } from '../../../core/services/stones.repository';
 import { StoneModel } from '../../viewmodel/Stone.model';
 import { GauntletMapper } from '../../mappers/gauntlet.mapper';
-import {Observable, Subscription} from 'rxjs';
+import {Observable} from 'rxjs';
 import {select, Store} from '@ngrx/store';
 import {GauntletState} from '../../../reducers/gauntlet.reducer';
 
@@ -15,7 +15,7 @@ import {GauntletState} from '../../../reducers/gauntlet.reducer';
 export class GauntletComponent implements OnInit, OnDestroy {
   public stones: StoneModel[];
   public stones$: Observable<GauntletState>;
-  public subscription: Subscription;
+  // public subscription: Subscription;
   constructor(private store: Store<GauntletState>, private socketClient: SocketClient, private stonesRepository: StonesRepository) {
     this.stones = [];
     this.stones$ = store.pipe(select('gauntlet'));
@@ -25,7 +25,7 @@ export class GauntletComponent implements OnInit, OnDestroy {
     // this.subscription = this.stonesRepository.getStones().subscribe(gauntlet => this.stones = GauntletMapper.toViewModel(gauntlet));
   }
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    // this.subscription.unsubscribe();
 }
 
   public isGauntletCompleted() {
