@@ -11,9 +11,19 @@ export interface GauntletState {
   timeStone: Stone;
 }
 
-export function gauntletReducer(state: GauntletState = gauntlet, action: GauntletActions) {
+const defaultState: GauntletState = {
+  mindStone: null,
+  powerStone: null,
+  realityStone: null,
+  soulStone: null,
+  spaceStone: null,
+  timeStone: null
+};
+
+export function gauntletReducer(state: GauntletState = defaultState, action: GauntletActions) {
   switch (action.type) {
     case GET_STONES_FULFILLED:
+      console.log(action.gauntlet);
       return {...state, ...action.gauntlet};
     case EQUIP:
       const stone = state[action.stoneId];

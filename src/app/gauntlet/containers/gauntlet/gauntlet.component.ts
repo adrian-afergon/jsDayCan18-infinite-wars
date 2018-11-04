@@ -16,7 +16,7 @@ import {Equip, GetStones} from '../../../actions/gauntlet.actions';
 export class GauntletComponent implements OnInit {
   public stones$: Observable<Array<StoneModel>>;
   public isGauntletCompleted$: Observable<boolean>;
-  constructor(private store: Store<GauntletState>, private socketClient: SocketClient, private stonesRepository: StonesRepository) {
+  constructor(private store: Store<GauntletState>, private socketClient: SocketClient) {
     this.stones$ = store.pipe(select(GauntletSelectors.getGauntletAsViewModel));
     this.isGauntletCompleted$ = store.pipe(select(GauntletSelectors.isGauntletCompleted));
   }
