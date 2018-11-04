@@ -23,7 +23,6 @@ const defaultState: GauntletState = {
 export function gauntletReducer(state: GauntletState = defaultState, action: GauntletActions) {
   switch (action.type) {
     case GET_STONES_FULFILLED:
-      console.log(action.gauntlet);
       return {...state, ...action.gauntlet};
     case EQUIP:
       const stone = state[action.stoneId];
