@@ -1,10 +1,14 @@
 import {Action} from '@ngrx/store';
 
 interface PopulationState {
-  population: number;
+  people: number;
 }
 
-export function populationReducer(state: PopulationState, action: Action) {
+const defaultState: PopulationState = {
+  people: 0
+};
+
+export function populationReducer(state: PopulationState = defaultState, action: Action) {
   switch (action.type) {
     default:
       return state;
