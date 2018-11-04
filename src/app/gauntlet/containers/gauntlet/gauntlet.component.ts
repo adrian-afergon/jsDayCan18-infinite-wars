@@ -6,7 +6,7 @@ import {Observable} from 'rxjs';
 import {select, Store} from '@ngrx/store';
 import {GauntletState} from '../../../reducers/gauntlet.reducer';
 import {GauntletSelectors} from '../../../selectors/gauntlet.selectors';
-import {Equip} from '../../../actions/gauntlet.actions';
+import {Equip, GetStones} from '../../../actions/gauntlet.actions';
 
 @Component({
   selector: 'app-gauntlet',
@@ -22,7 +22,7 @@ export class GauntletComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.subscription = this.stonesRepository.getStones().subscribe(gauntlet => this.stones = GauntletMapper.toViewModel(gauntlet));
+    this.store.dispatch(new GetStones());
   }
 
   public onSnap() {
