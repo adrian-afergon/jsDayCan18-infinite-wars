@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import {Actions, Effect, ofType} from '@ngrx/effects';
-import {StonesRepository} from '../core/services/stones.repository';
+import {StonesRepository} from '../../services/stones.repository';
 import {Observable, of } from 'rxjs';
 import {Action} from '@ngrx/store';
 import {GET_STONES, GetStonesFulfilled, GetStonesRejected, SNAP} from '../actions/gauntlet.actions';
 import {catchError, map, switchMap, tap} from 'rxjs/operators';
-import {Gauntlet} from '../core/model/stones';
-import {SocketClient} from '../core/services/socket.client';
+import {Gauntlet} from '../../model/stones';
+import {SocketClient} from '../../services/socket.client';
 
 @Injectable()
 export class AppEffects {

@@ -1,4 +1,4 @@
-import {Stone} from '../core/model/stones';
+import {Stone} from '../../model/stones';
 import {gauntlet} from './gauntlet.hack';
 import {EQUIP, GauntletActions, GET_STONES_FULFILLED} from '../actions/gauntlet.actions';
 

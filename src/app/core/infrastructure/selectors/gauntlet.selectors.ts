@@ -1,6 +1,6 @@
 import {createFeatureSelector, createSelector} from '@ngrx/store';
-import {StoneModel} from '../gauntlet/viewmodel/Stone.model';
-import {GauntletMapper} from '../gauntlet/mappers/gauntlet.mapper';
+import {StoneModel} from '../../../gauntlet/viewmodel/Stone.model';
+import {GauntletMapper} from '../../../gauntlet/mappers/gauntlet.mapper';
 import {GauntletState} from '../reducers/gauntlet.reducer';
 
 export class GauntletSelectors {

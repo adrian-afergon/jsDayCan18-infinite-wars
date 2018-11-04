@@ -2,9 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import { StoneModel } from '../../viewmodel/Stone.model';
 import {Observable} from 'rxjs';
 import {select, Store} from '@ngrx/store';
-import {GauntletState} from '../../../reducers/gauntlet.reducer';
-import {GauntletSelectors} from '../../../selectors/gauntlet.selectors';
-import {Equip, GetStones, Snap} from '../../../actions/gauntlet.actions';
+import {GauntletState} from '../../../core/infrastructure/reducers/gauntlet.reducer';
+import {GauntletSelectors} from '../../../core/infrastructure/selectors/gauntlet.selectors';
+import {Equip, GetStones, Snap} from '../../../core/infrastructure/actions/gauntlet.actions';
 
 @Component({
   selector: 'app-gauntlet',

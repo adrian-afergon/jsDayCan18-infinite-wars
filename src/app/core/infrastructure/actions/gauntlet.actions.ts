@@ -1,5 +1,5 @@
 import {Action} from '@ngrx/store';
-import {Gauntlet} from '../core/model/stones';
+import {Gauntlet} from '../../model/stones';
 
 export const EQUIP = '[Gauntlet] equip';
 
