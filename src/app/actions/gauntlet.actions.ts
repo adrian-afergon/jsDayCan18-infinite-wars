@@ -8,8 +8,6 @@ export const GET_STONES_FULFILLED = '[Gauntlet] get stones fulfilled';
 export const GET_STONES_REJECTED = '[Gauntlet] get stones rejected';
 
 export const SNAP = '[Gauntlet] snap';
-export const SNAP_SUCESS = '[Gauntlet] snap success';
-export const SNAP_FAIL = '[Gauntlet] snap fail';
 
 export class Equip implements Action {
   readonly type = EQUIP;
@@ -35,21 +33,9 @@ export class Snap implements Action {
   constructor() {}
 }
 
-export class SnapSuccess implements Action {
-  readonly  type = SNAP_SUCESS;
-  constructor() {}
-}
-
-export class SnapFail implements Action {
-  readonly  type = SNAP_FAIL;
-  constructor() {}
-}
-
 export type GauntletActions
   = Equip
   | GetStones
   | GetStonesFulfilled
   | GetStonesRejected
-  | Snap
-  | SnapSuccess
-  | SnapFail;
+  | Snap;
