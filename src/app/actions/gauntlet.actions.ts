@@ -22,12 +22,12 @@ export class GetStones implements Action {
 
 export class GetStonesFulfilled implements Action {
   readonly type = GET_STONES_FULFILLED;
-  constructor(gauntlet: Gauntlet) {}
+  constructor(public gauntlet: Gauntlet) {}
 }
 
 export class GetStonesRejected implements Action {
   readonly type = GET_STONES_REJECTED;
-  constructor(error: string) {}
+  constructor(public error: string) {}
 }
 
 export class Snap implements Action {
