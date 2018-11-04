@@ -1,6 +1,6 @@
 import {Stone} from '../core/model/stones';
 import {gauntlet} from './gauntlet.hack';
-import {EQUIP, GauntletActions} from '../actions/gauntlet.actions';
+import {EQUIP, GauntletActions, GET_STONES_FULFILLED} from '../actions/gauntlet.actions';
 
 export interface GauntletState {
   powerStone: Stone;
@@ -13,6 +13,8 @@ export interface GauntletState {
 
 export function gauntletReducer(state: GauntletState = gauntlet, action: GauntletActions) {
   switch (action.type) {
+    case GET_STONES_FULFILLED:
+      return {...state, ...action.gauntlet};
     case EQUIP:
       const stone = state[action.stoneId];
       return {...state, [action.stoneId]: {...stone, equipped: !stone.equipped} };
