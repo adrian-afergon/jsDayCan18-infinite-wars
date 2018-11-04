@@ -1,25 +1,24 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {SocketClient} from '../../../core/services/socket.client';
-import {Subscription} from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
+import {select, Store} from '@ngrx/store';
+import {GauntletState} from '../../../core/infrastructure/reducers/gauntlet.reducer';
+import {PopulationState} from '../../infrastructure/reducers/population.reducer';
+import {PopulationSelectors} from '../../infrastructure/selectors/population.selectors';
 
 @Component({
   selector: 'app-population',
   templateUrl: './population.component.html',
   styleUrls: ['./population.component.scss']
 })
-export class PopulationComponent implements OnInit, OnDestroy {
-
-  population: number;
-  subscription: Subscription;
-  constructor(private socketClient: SocketClient) {
+export class PopulationComponent implements OnInit {
+  people$: Observable<number>;
+  constructor(private store: Store<PopulationState>) {
   }
 
   ngOnInit() {
-    this.subscription = this.socketClient.onPopulation().subscribe( population => this.population = population);
-  }
-
-  ngOnDestroy() {
-    this.subscription.unsubscribe();
+    this.people$ = this.store.pipe(select(PopulationSelectors.getConnectedPeople));
+    // this.subscription = this.socketClient.onPopulation().subscribe( population => this.people = population);
   }
 
 }

@@ -5,7 +5,8 @@ import {PopulationRouter} from './population.routing';
 import {SharedModule} from '../shared/shared.module';
 import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
-import {populationReducer} from './infrastructure/reducers/';
+import {populationReducer} from './infrastructure/reducers/population.reducer';
+import {PopulationEffects} from './infrastructure/effects/';
 
 @NgModule({
   imports: [
@@ -13,8 +14,8 @@ import {populationReducer} from './infrastructure/reducers/';
     SharedModule,
     PopulationRouter,
     StoreModule.forFeature('population', populationReducer),
-    EffectsModule.forFeature([])
+    EffectsModule.forFeature([PopulationEffects])
   ],
-  declarations: [PopulationComponent]
+  declarations: [PopulationComponent],
 })
 export class PopulationModule { }
