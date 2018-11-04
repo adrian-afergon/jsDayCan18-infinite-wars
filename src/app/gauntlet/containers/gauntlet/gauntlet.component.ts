@@ -4,7 +4,8 @@ import { StonesRepository } from '../../../core/services/stones.repository';
 import { StoneModel } from '../../viewmodel/Stone.model';
 import {Observable} from 'rxjs';
 import {select, Store} from '@ngrx/store';
-import {GauntletState, getGauntletAsViewModel} from '../../../reducers/gauntlet.reducer';
+import {GauntletState} from '../../../reducers/gauntlet.reducer';
+import {GauntletSelectors} from '../../../selectors/gauntlet.selectors';
 
 @Component({
   selector: 'app-gauntlet',
@@ -13,22 +14,18 @@ import {GauntletState, getGauntletAsViewModel} from '../../../reducers/gauntlet.
 })
 export class GauntletComponent implements OnInit {
   public stones: StoneModel[];
-  public stones$: Observable<any>;
+  public stones$: Observable<Array<StoneModel>>;
+  public isGauntletCompleted$: Observable<boolean>;
   constructor(private store: Store<GauntletState>, private socketClient: SocketClient, private stonesRepository: StonesRepository) {
     this.stones = [];
-    this.stones$ = store.pipe(select(getGauntletAsViewModel));
-    store.pipe(select(getGauntletAsViewModel)).subscribe(value => {
-      console.log('re-render');
-    });
+    this.stones$ = store.pipe(select(GauntletSelectors.getGauntletAsViewModel));
+    this.isGauntletCompleted$ = store.pipe(select(GauntletSelectors.isGauntletCompleted));
   }
 
   ngOnInit() {
     // this.subscription = this.stonesRepository.getStones().subscribe(gauntlet => this.stones = GauntletMapper.toViewModel(gauntlet));
   }
 
-  public isGauntletCompleted() {
-    return !!this.stones.find(stone => !stone.equipped);
-  }
   public onSnap() {
     this.socketClient.snap();
   }
