@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import { SocketClient } from '../../../core/services/socket.client';
-import { StonesRepository } from '../../../core/services/stones.repository';
 import { StoneModel } from '../../viewmodel/Stone.model';
 import {Observable} from 'rxjs';
 import {select, Store} from '@ngrx/store';
