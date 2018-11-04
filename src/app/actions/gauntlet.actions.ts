@@ -1,4 +1,5 @@
 import {Action} from '@ngrx/store';
+import {Gauntlet} from '../core/model/stones';
 
 export const EQUIP = '[Gauntlet] equip';
 
@@ -14,12 +15,41 @@ export class Equip implements Action {
   readonly type = EQUIP;
   constructor(public stoneId: string) {}
 }
+export class GetStones implements Action {
+  readonly type = GET_STONES;
+  constructor() {}
+}
+
+export class GetStonesFulfilled implements Action {
+  readonly type = GET_STONES_FULFILLED;
+  constructor(gauntlet: Gauntlet) {}
+}
+
+export class GetStonesRejected implements Action {
+  readonly type = GET_STONES_REJECTED;
+  constructor(error: string) {}
+}
 
 export class Snap implements Action {
   readonly  type = SNAP;
   constructor() {}
 }
 
+export class SnapSuccess implements Action {
+  readonly  type = SNAP_SUCESS;
+  constructor() {}
+}
+
+export class SnapFail implements Action {
+  readonly  type = SNAP_FAIL;
+  constructor() {}
+}
+
 export type GauntletActions
   = Equip
-  | Snap;
+  | GetStones
+  | GetStonesFulfilled
+  | GetStonesRejected
+  | Snap
+  | SnapSuccess
+  | SnapFail;
